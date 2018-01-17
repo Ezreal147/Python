@@ -31,5 +31,5 @@ if __name__ == '__main__':
         insert+='")'
     insert+=';'
     cursors.execute(insert)
-    cursors.execute('select * from activation_code')
+    cursors.execute('select * from activation_code;')
     print(cursors.fetchall())
