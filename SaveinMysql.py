@@ -17,7 +17,11 @@ if __name__ == '__main__':
     cursors=connection.cursor()
     cursors.execute('create database if not exists python')
     cursors.execute('use Python;')
-    cursors.execute('CREATE TABLE IF NOT EXISTS `activation_code`(`id` INT UNSIGNED AUTO_INCREMENT,`code` VARCHAR(100) NOT NULL,PRIMARY KEY ( `id` ))ENGINE=InnoDB DEFAULT CHARSET=utf8;')
+    cursors.execute('CREATE TABLE IF NOT EXISTS `activation_code`('
+                    '`id` INT UNSIGNED AUTO_INCREMENT,'
+                    '`code` VARCHAR(100) NOT NULL,'
+                    'PRIMARY KEY ( `id` )'
+                    ')ENGINE=InnoDB DEFAULT CHARSET=utf8;')
     insert='insert into activation_code(code)values'
     code_dic=getActivationCode()
     i=0
