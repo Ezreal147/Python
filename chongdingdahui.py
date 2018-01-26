@@ -67,3 +67,5 @@ if __name__ == '__main__':
         print('choose3:%d'%t3)
         end = time.time()
         print('runtime: ' + str(end - start))
+
+        
