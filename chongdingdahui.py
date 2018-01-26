@@ -4,24 +4,29 @@ import os
 import re
 from selenium import webdriver
 from bs4 import BeautifulSoup
-APP_ID='10681076'
-API_KEY='h5R6ZRUzTvBhVN02EL4gYOPA'
-SECRET_KEY='eLlLyM7Wch6aNXqdV0kSsnmqBzCGAiPa'
+APP_ID='******'#百度云api的账号，需要自己去注册
+API_KEY='********'#同上，需填写
+SECRET_KEY='********'#同上
 def get_file_content(filePath):
     with open(filePath, 'rb') as fp:
         return fp.read()
 if __name__ == '__main__':
-    baidu = webdriver.Edge()
+    baidu = webdriver.Edge()#需要下载edge浏览器驱动并且添加目录到path
     baidu.get('http://www.baidu.com')
     client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
     flag = 0
-    shipin = input('西瓜视频请输入1，非西瓜2')
-    if shipin == '1':
-        flag = 1
-    elif shipin == '2':
-        flag = 0
     while True:
-        input('按回车继续：')
+        shipin = input('西瓜视频请输入1，非西瓜2')
+        if shipin == '1':
+            flag = 1
+            break
+        elif shipin == '2':
+            flag = 0
+            break
+        else:
+            print("输入错误")    
+    while True:
+        input('按回车获取题目：')
         start=time.time()
         os.system('adb shell /system/bin/screencap -p /sdcard/screenshot.png')
         os.system('adb pull /sdcard/screenshot.png D:\PythonProject\RsaTest\\screenshot.png')
